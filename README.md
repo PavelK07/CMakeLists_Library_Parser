@@ -1,4 +1,4 @@
-# 📋 CMakeLists Parser
+# 📋 CMakeLists Library Parser
 Утилита для анализа файлов `CMakeLists.txt` с автоматическим извлечением списка используемых библиотек. Поддерживает обнаружение библиотек, определенных через `find_package` и `FetchContent`.
 
 ## Особенности
@@ -16,13 +16,16 @@
 ### Предварительные требования
 
 - **C++ компилятор** с поддержкой C++17 
-- **CMake** 3.14 или выше
+- **CMake** 3.10 или выше
 
 ### Сборка проекта
 
 ```bash
 # Клонирование репозитория
 git clone https://github.com/Pavelk07/CMakeLists_Library_Parser.git
+
+#Переход в директорию проекта:
+cd CMakeLists_Library_Parser
 
 # Создание директории для сборки
 mkdir build && cd build
@@ -55,7 +58,7 @@ sudo apt install cmake
 
 ## 🎮 Использование
 
-### Запуск с указанием пути к CMakeLists.txt
+### Запуск с указанием пути к CMakeLists
 ```bash
 ./CMakeListsParser < Path to CMakeLists.txt >
 
@@ -63,16 +66,7 @@ sudo apt install cmake
 Error: File CMakeLists.txt does not exist! Write the path to CMakeLists.txt:
 < Correct path to CMakeLists.txt >
 ```
-### Запуск без указания пути к CMakeLists.txt
-Если CMakeLists.txt в той же директории с исполняемым файлом
-```bash
-./CMakeListsParser
-
-#Если CMakeLists.txt не найден в той же директории, будет предложено указать правильный путь
-Error: File CMakeLists.txt does not exist! Write the path to CMakeLists.txt:
-< Correct path to CMakeLists.txt >
-```
 
 ## 👨‍💻 Авторы
 
-- **PavelK07** - *Разработчик* - [Мой GitHub](https://github.com/PavelK07)  
+- **PavelKpk** - *Разработчик* - [Мой GitHub](https://github.com/PavelK07)  
