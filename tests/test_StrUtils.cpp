@@ -6,7 +6,7 @@ TEST(StrUtilsTest, Trim) {
     EXPECT_EQ(trim("\t\nhello\r\n"), "hello");
     EXPECT_EQ(trim("no_spaces"), "no_spaces");
     EXPECT_EQ(trim(""), "");
-    EXPECT_EQ(trim("   "), "   ");
+    EXPECT_EQ(trim("   "), "");
 }
 
 TEST(StrUtilsTest, RemoveComments) {

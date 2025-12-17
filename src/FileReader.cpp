@@ -1,12 +1,12 @@
 #include "FileReader.h"
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 
 
 // Проверка существования файла
 bool fileExists(const std::string& filepath) {
-    std::ifstream file(filepath);
-    return file.good();
+    return std::filesystem::exists(filepath);
 }
 
 std::string getCorrectFilePath(int& argc, char* argv[]){
@@ -16,11 +16,19 @@ std::string getCorrectFilePath(int& argc, char* argv[]){
         filepath = argv[1];
     } 
     // Если файл не найден просим указать к нему путь
-    while (!fileExists(filepath)) {
+    while (true) {
+        if (fileExists(filepath) and (filepath.substr(filepath.length() - 1)!="/") ){
+            return filepath;
+        }
+        if (fileExists(filepath + ".txt")){
+            return filepath + ".txt";
+        }        
+        if (fileExists(filepath + "CMakeLists.txt")){
+            return filepath + "CMakeLists.txt";
+        }   
         std::cerr << "Error: File " << filepath << " does not exist! Write the path to CMakeLists.txt: " << std::endl;
         std::cin >> filepath;
     }
-    return filepath;
 }
 
 // Получение списка строк

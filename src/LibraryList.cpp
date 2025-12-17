@@ -33,7 +33,7 @@ void LibraryList::displayLibraries() const {
         return;
     }
     // Вывод списка библиотек если они есть
-    std::cout << "Found " << libraries.size() << " library:" << std::endl << std::endl;
+    std::cout << "Found " << libraries.size() << " library:" << std::endl;
     int k=0;
     for (const auto& library : libraries) {
         k+=1;

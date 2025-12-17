@@ -3,8 +3,8 @@
 
 // Вывод библиотеки с номером по списку
 void Library::display(int k) const {
-    std::cout << k << ". " << name << std::endl;
     std::cout << std::endl;
+    std::cout << k << ". " << name << std::endl;
 }
 
 // Простой геттер
