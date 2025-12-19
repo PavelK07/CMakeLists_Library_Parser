@@ -100,12 +100,11 @@ void findLibraries(const std::string& filepath, LibraryList& libraryList) {
     
     // Последовательная проверка строк
     for (size_t i = 0; i < lines.size(); ++i) {
-        std::string line = lines[i];
 
         // Проверка что в строке есть find_package
-        if (isFindPackageLine(line)) {
+        if (isFindPackageLine(lines[i])) {
             // Получение имени библиотеки
-            std::string libName = extractLibraryNameFromFindPackage(line);
+            std::string libName = extractLibraryNameFromFindPackage(lines[i]);
             //добавление имени библиотеки в список библиотек
             if (!libName.empty()) {
                 auto library = std::make_shared<Library>(libName);
@@ -113,10 +112,9 @@ void findLibraries(const std::string& filepath, LibraryList& libraryList) {
             }
         }
         // Проверка что в строке есть FetchContent
-        else if (isFetchContentLine(line)) {
+        else if (isFetchContentLine(lines[i])) {
             // Получение имени библиотеки
-            std::string nextLine = lines[i+1];  // На случай если имя библиотеки на следующей строке
-            std::string libName = extractLibraryNameFromFetchContent(line,nextLine);
+            std::string libName = extractLibraryNameFromFetchContent(lines[i],lines[i+1]);
             //добавление имени библиотеки в список библиотек
             if (!libName.empty()) {
                 auto library = std::make_shared<Library>(libName);
